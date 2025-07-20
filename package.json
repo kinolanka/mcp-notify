@@ -1,0 +1,24 @@
+{
+  "name": "@kinolanka/mcp-notify",
+  "version": "0.0.1",
+  "description": "MCP notification server.",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "notification"
+  ],
+  "bugs": {
+    "url": "https://github.com/kinolanka/mcp-notify/issues"
+  },
+  "author": "Volodymyr Mashkin <kinolanka@gmail.com> (https://kinolanka.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinolanka/mcp-notify.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": "./dist/index.js",
+  "bin": "./dist/index.js"
+}
