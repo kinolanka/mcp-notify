@@ -13,7 +13,7 @@ Add to your MCP client configuration:
   "mcpServers": {
     "notifications": {
       "command": "npx",
-      "args": ["@kinolanka/mcp-notify"]
+      "args": ["@kinolanka/mcp-notify@latest"]
     }
   }
 }
@@ -60,7 +60,7 @@ Your AI client needs rules to know when to use notifications. Add these to your 
 ```json
 {
   "command": "npx",
-  "args": ["@kinolanka/mcp-notify", "--audio", "/path/to/sound.wav"]
+  "args": ["@kinolanka/mcp-notify@latest", "--audio", "/path/to/sound.wav"]
 }
 ```
 
@@ -69,7 +69,7 @@ Your AI client needs rules to know when to use notifications. Add these to your 
 ```json
 {
   "command": "npx",
-  "args": ["@kinolanka/mcp-notify", "--no-audio"]
+  "args": ["@kinolanka/mcp-notify@latest", "--no-audio"]
 }
 ```
 
@@ -86,12 +86,6 @@ Your AI client needs rules to know when to use notifications. Add these to your 
 
 ```bash
 paplay /usr/share/sounds/alsa/Front_Left.wav
-```
-
-**Verify MCP connection:**
-
-```bash
-npx @kinolanka/mcp-notify --help
 ```
 
 ## License

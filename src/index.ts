@@ -77,16 +77,6 @@ class NotificationServer {
           enableDesktopNotification = false;
 
           break;
-
-        case '--help':
-
-        // eslint-disable-next-line no-fallthrough
-        case '-h':
-          this.showHelp();
-
-          process.exit(0);
-
-          break;
       }
     }
 
@@ -95,26 +85,6 @@ class NotificationServer {
       enableAudio,
       enableDesktopNotification,
     };
-  }
-
-  private showHelp(): void {
-    // eslint-disable-next-line no-console
-    console.log(`
-MCP Notify - Notification server for Claude Code
-
-Usage: mcp-notify [options]
-
-Options:
-  --audio, -a <path>    Path to custom audio file (WAV, MP3, etc.)
-  --no-audio           Disable all audio notifications (silent mode)
-  --no-notification    Disable desktop notifications
-  --help, -h           Show this help message
-
-Examples:
-  mcp-notify                                    # Use bundled audio and notifications
-  mcp-notify --audio /path/to/chime.wav        # Use custom audio file
-  mcp-notify --no-audio                        # Silent notifications only
-`);
   }
 
   private setupToolHandlers(): void {
@@ -274,12 +244,10 @@ Examples:
 }
 
 // Start the server
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const server = new NotificationServer();
+const server = new NotificationServer();
 
-  server.run().catch((error) => {
-    console.error('Failed to start MCP server:', error);
+server.run().catch((error) => {
+  console.error('Failed to start MCP server:', error);
 
-    process.exit(1);
-  });
-}
+  process.exit(1);
+});
