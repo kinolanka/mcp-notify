@@ -1,6 +1,6 @@
 {
   "name": "@kinolanka/mcp-notify",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "MCP notification server with bundled audio notifications and custom audio support for WSL.",
   "license": "MIT",
   "keywords": [
