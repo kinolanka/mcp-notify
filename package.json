@@ -1,11 +1,15 @@
 {
   "name": "@kinolanka/mcp-notify",
-  "version": "0.0.1",
-  "description": "MCP notification server.",
+  "version": "0.0.0",
+  "description": "MCP notification server with bundled audio notifications and custom audio support for WSL.",
   "license": "MIT",
   "keywords": [
     "mcp",
-    "notification"
+    "notification",
+    "claude",
+    "wsl",
+    "audio",
+    "terminal"
   ],
   "bugs": {
     "url": "https://github.com/kinolanka/mcp-notify/issues"
@@ -16,9 +20,48 @@
     "url": "git+https://github.com/kinolanka/mcp-notify.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "assets",
+    "README.md"
   ],
   "type": "module",
+  "main": "./dist/index.js",
   "exports": "./dist/index.js",
-  "bin": "./dist/index.js"
+  "bin": "./dist/index.js",
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "clean": "rimraf dist",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "prettier": "prettier --write ./src",
+    "prettier:check": "prettier --check ./src",
+    "lint": "eslint --ext .ts ./src",
+    "lint:fix": "eslint --ext .ts ./src --fix",
+    "prepare": "husky",
+    "ci": "npm run clean && npm run prettier:check && npm run lint && npm run typecheck && npm run build",
+    "prepublishOnly": "npm run ci"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "node-notifier": "^10.0.1"
+  },
+  "devDependencies": {
+    "@kinolanka/prettier-config": "^1.1.0",
+    "@types/node": "^22.0.0",
+    "@types/node-notifier": "^8.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "eslint": "^9.22.0",
+    "eslint-import-resolver-typescript": "^3.8.3",
+    "eslint-plugin-import": "^2.31.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
